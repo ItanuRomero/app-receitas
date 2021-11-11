@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# remove .csv with the API key to AWS
+new_user_credentials.csv
