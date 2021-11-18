@@ -4425,7 +4425,7 @@ autoprefixer@^9.6.1:
 
 aws-amplify@^4.3.7:
   version "4.3.7"
-  resolved "https://registry.npmjs.org/aws-amplify/-/aws-amplify-4.3.7.tgz"
+  resolved "https://registry.yarnpkg.com/aws-amplify/-/aws-amplify-4.3.7.tgz#1fda4baa10699227d3d3246f5f38be606e549c02"
   integrity sha512-T94DIVXjtpPbojdDfcuZWZXi7zSXzWyvdiiykVxXEl427mP8RAwPMvaOdYo3r5jDPs9j8Sy4RA4KQ8TzlkYrUg==
   dependencies:
     "@aws-amplify/analytics" "5.1.5"
