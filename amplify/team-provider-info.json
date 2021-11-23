@@ -10,6 +10,11 @@
       "StackName": "amplify-appreceitas-dev-205233",
       "StackId": "arn:aws:cloudformation:us-east-1:510647371728:stack/amplify-appreceitas-dev-205233/1c419610-4bef-11ec-b02a-0e249710a5b1",
       "AmplifyAppId": "d2f22xh9irgkhk"
+    },
+    "categories": {
+      "auth": {
+        "appreceitas9551df39": {}
+      }
     }
   }
 }
