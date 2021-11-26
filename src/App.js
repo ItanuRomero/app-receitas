@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { API } from 'aws-amplify';
+import { API, Storage } from 'aws-amplify';
 import './App.css';
 import { listRecipes } from './graphql/queries';
 import { createRecipe as createRecipeMutation, deleteRecipe as deleteRecipeMutation } from './graphql/mutations';
@@ -25,6 +25,14 @@ function App() {
 
   async function fetchRecipes() {
     const apiData = await API.graphql({ query: listRecipes });
+    const recipesFromAPI = apiData.data.listRecipes.items;
+    await Promise.all(recipesFromAPI.map(async recipe => {
+      if (recipe.image) {
+        const image = await Storage.get(recipe.image);
+        recipe.image = image;
+      }
+      return recipe;
+    }))
     setRecipes(apiData.data.listRecipes.items);
   }
 
@@ -36,6 +44,10 @@ function App() {
       || !formData.preparationTime
     ) return;
     await API.graphql({ query: createRecipeMutation, variables: { input: formData } });
+    if (formData.image) {
+      const image = await Storage.get(formData.image);
+      formData.image = image;
+    }
     setRecipes([ ...recipes, formData ]);
     setFormData(formFirstBreath);
   }
@@ -44,6 +56,14 @@ function App() {
     const recipesNewArray = recipes.filter(recipe => recipe.id !== id);
     setRecipes(recipesNewArray);
     await API.graphql({ query: deleteRecipeMutation, variables: { input: { id } }});
+  }
+
+  async function proccessImage(e) {
+    if (!e.target.files[0]) return;
+    const file = e.target.files[0];
+    setFormData({ ...formData, image: file.name });
+    await Storage.put(file.name, file);
+    fetchRecipes();
   }
 
   return (
@@ -94,12 +114,19 @@ function App() {
             placeholder="Tempo de preparo"
             value={formData.preparationTime}
           />
+          <input
+            type="file"
+            onChange={proccessImage}
+          />
           <button onClick={createRecipe}>Salvar receita</button>
         </form>
         <div>
           {
             recipes.map(recipe => (
               <div key={recipe.id || recipe.title}>
+                {
+                  recipe.image && <img src={recipe.image} style={{width: 400}}  alt={recipe.title + ' Imagem'}/>
+                }
                 <h2>{recipe.title}</h2>
                 <p>{recipe.description}</p>
                 <p>{recipe.ingredients}</p>
