@@ -7,4 +7,5 @@ type Recipe @model {
   preparationMethod: String
   tips: String
   preparationTime: String
+  image: String
 }

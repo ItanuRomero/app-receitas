@@ -12,6 +12,7 @@ export const getRecipe = /* GraphQL */ `
       preparationMethod
       tips
       preparationTime
+      image
       createdAt
       updatedAt
     }
@@ -33,6 +34,7 @@ export const listRecipes = /* GraphQL */ `
         preparationMethod
         tips
         preparationTime
+        image
         createdAt
         updatedAt
       }
