@@ -1,17 +1,24 @@
 import React from 'react';
 import './App.css';
-import { withAuthenticator } from '@aws-amplify/ui-react'
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Link } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './routes/home';
 
 function App() {
   return (
       <div className="App">
         <Header/>
-          <Home/>
-        <Footer />
+          <main>
+              <Link to="/recipes">
+                  <h1>Ver receitas</h1>
+              </Link>
+              <Link to="/new">
+                  <h1>Criar receitas</h1>
+              </Link>
+          </main>
+        <Footer/>
       </div>
   );
 }

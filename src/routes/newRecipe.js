@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { listRecipes } from '../graphql/queries'
 import { createRecipe as createRecipeMutation } from '../graphql/mutations';
 import { API, Storage } from 'aws-amplify';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const formFirstBreath = {
     title: '',
@@ -60,6 +62,7 @@ function NewRecipe() {
 
     return(
     <>
+    <Header/>
         <h1>
           Create your own recipe:
         </h1>
@@ -108,6 +111,7 @@ function NewRecipe() {
           />
           <button onClick={createRecipe}>Salvar receita</button>
         </form>
+      <Footer/>
     </>
     )
 }

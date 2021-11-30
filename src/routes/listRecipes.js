@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { listRecipes } from '../graphql/queries';
 import { deleteRecipe as deleteRecipeMutation } from '../graphql/mutations';
 import { API, Storage } from 'aws-amplify';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 
 function ListRecipes() {
@@ -31,6 +33,8 @@ function ListRecipes() {
     }
 
     return(
+      <>
+      <Header/>
         <div>
           {
             recipes.map(recipe => (
@@ -46,6 +50,8 @@ function ListRecipes() {
             ))
           }
         </div>
+        <Footer/>
+        </>
     )
 }
 
