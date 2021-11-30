@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { listRecipes } from '../graphql/queries'
-import { createRecipe as createRecipeMutation, deleteRecipe as deleteRecipeMutation } from '../graphql/mutations';
+import { createRecipe as createRecipeMutation } from '../graphql/mutations';
 import { API, Storage } from 'aws-amplify';
 
 const formFirstBreath = {
@@ -48,12 +48,6 @@ function NewRecipe() {
         }
         setRecipes([ ...recipes, formData ]);
         setFormData(formFirstBreath);
-    }
-
-    async function deleteRecipe({ id }) {
-        const recipesNewArray = recipes.filter(recipe => recipe.id !== id);
-        setRecipes(recipesNewArray);
-        await API.graphql({ query: deleteRecipeMutation, variables: { input: { id } }});
     }
 
     async function proccessImage(e) {

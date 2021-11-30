@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { listRecipes } from '../graphql/queries';
-import { createRecipe as createRecipeMutation, deleteRecipe as deleteRecipeMutation } from '../graphql/mutations';
+import { deleteRecipe as deleteRecipeMutation } from '../graphql/mutations';
 import { API, Storage } from 'aws-amplify';
 
 

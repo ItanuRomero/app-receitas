@@ -8,15 +8,27 @@ import config from './aws-exports';
 import { I18n } from 'aws-amplify';
 import AmplifyI18n from 'amplify-i18n';
 
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import NewRecipe from './routes/newRecipe';
+import ListRecipes from './routes/listRecipes';
+
 Amplify.configure(config);
 const locales = ["en", "fr", "pt-BR"];
 AmplifyI18n.configure(locales);
 I18n.setLanguage("pt-BR");
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="new" element={<NewRecipe />} />
+      <Route path="recipes" element={<ListRecipes />} />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

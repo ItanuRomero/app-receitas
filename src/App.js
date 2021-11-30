@@ -4,20 +4,15 @@ import { withAuthenticator } from '@aws-amplify/ui-react'
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import NewRecipe from './Pages/newRecipe';
-import ListRecipes from './Pages/listRecipes';
+import Home from './routes/home';
 
 function App() {
-
   return (
-    <div className="App">
-      <Header/>
-      <main>
-        <NewRecipe />
-        <ListRecipes />
-      </main>
-      <Footer />
-    </div>
+      <div className="App">
+        <Header/>
+          <Home/>
+        <Footer />
+      </div>
   );
 }
 
