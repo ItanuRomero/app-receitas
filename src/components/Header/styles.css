@@ -1,0 +1,13 @@
+.header-container {
+  width: 100vw;
+  height: 80px;
+  background-color: #ADA7A7;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-container h1 {
+    color: #FFFFFF;
+    font-size: 38px;
+}
