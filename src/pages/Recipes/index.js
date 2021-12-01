@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { API, Storage } from 'aws-amplify';
 
@@ -17,19 +17,17 @@ export const Recipes = () => {
   async function fetchRecipes() {
     const apiData = await API.graphql({ query: listRecipes });
     const recipesFromAPI = apiData.data.listRecipes.items;
-
     await Promise.all(
       recipesFromAPI.map(async recipe => {
         if (recipe.image) {
           const image = await Storage.get(recipe.image);
           recipe.image = image;
         }
-
         return recipe;
       })
     );
-
-    setRecipes(apiData.data.listRecipes.items);
+    
+    setRecipes(recipesFromAPI);
   }
 
   async function deleteRecipe({ id }) {
@@ -55,7 +53,7 @@ export const Recipes = () => {
             <p>{recipe.description}</p>
             <p>{recipe.ingredients}</p>
             
-            <button onClick={deleteRecipe(recipe.id)}>Remover receita</button>
+            <button onClick={() => deleteRecipe(recipe.id)}>Remover receita</button>
           </div>    
          ))}   
       </div>

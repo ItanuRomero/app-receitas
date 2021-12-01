@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { API, Storage } from 'aws-amplify';
+import { Link } from 'react-router-dom';
 
-import { listRecipes } from '../graphql/queries'
-import { createRecipe as createRecipeMutation } from '../graphql/mutations';
+import { listRecipes } from '../../graphql/queries'
+import { createRecipe as createRecipeMutation } from '../../graphql/mutations';
 
 import './styles.css';
 
