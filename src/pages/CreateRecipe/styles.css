@@ -1,0 +1,4 @@
+.crate-recipe-container {
+  height: 80vh;
+  overflow-y: scroll;
+}

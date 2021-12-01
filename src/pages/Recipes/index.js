@@ -49,7 +49,7 @@ export const Recipes = () => {
       <div className="recipes-grid">
         {recipes.map(recipe => (
           <div className="recipe" key={recipe.id || recipe.title}>
-            {recipe.image && <img src={recipe.image} style={{width: 400}} alt={recipe.title + ' Imagem'} />}
+            {recipe.image && <img src={recipe.image} alt={recipe.title + ' Imagem'} />}
 
             <h2>{recipe.title}</h2>
             <p>{recipe.description}</p>
