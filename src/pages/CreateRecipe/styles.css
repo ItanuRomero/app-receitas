@@ -1,4 +1,9 @@
 .crate-recipe-container {
   height: 80vh;
+  margin: 0 0 0 20vh;
   overflow-y: scroll;
+}
+
+input {
+  margin-left: 10px;
 }
