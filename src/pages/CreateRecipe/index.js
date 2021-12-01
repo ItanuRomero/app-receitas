@@ -81,56 +81,96 @@ export const CreateRecipe = () => {
       </Link>
 
       <form>
-        <input 
-          onChange={e => setFormData({ ...formData, 'title': e.target.value})}
-          placeholder="Título"
-          value={formData.title}
-        />
-
-        <input
-          type="text"
-          onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-          placeholder="Descrição"
-          value={formData.description}
-        />
+        <div>
+          <label>Titulo da receita</label>
+          <input 
+            onChange={e => setFormData({ ...formData, 'title': e.target.value})}
+            placeholder="Título"
+            value={formData.title}
+          />
+        </div>
         
-        <input 
-          onChange={e => setFormData({ ...formData, 'ingredients': e.target.value})}
-          placeholder="Ingredientes"
-          value={formData.ingredients}
-        />
+        <br />
+        
+        <div>
+          <label>Descrição da receita</label>
+          <input
+            type="text"
+            onChange={e => setFormData({ ...formData, 'description': e.target.value})}
+            placeholder="Descrição"
+            value={formData.description}
+          />
+        </div>
+        
+        <br />
 
-        <input 
-          onChange={e => setFormData({ ...formData, 'portions': parseInt(e.target.value)})}
-          placeholder="Porções"
-          value={formData.portions}
-        />
+        <div>
+          <label>Ingredientes da receita</label>
+          <input 
+            onChange={e => setFormData({ ...formData, 'ingredients': e.target.value})}
+            placeholder="Ingredientes"
+            value={formData.ingredients}
+          />
+        </div>
 
-        <input
-          type="text" 
-          onChange={e => setFormData({ ...formData, 'preparationMethod': e.target.value})}
-          placeholder="Modo de preparo"
-          value={formData.preparationMethod}
-        />
+        <br />
 
-        <input
-          type="text" 
-          onChange={e => setFormData({ ...formData, 'tips': e.target.value})}
-          placeholder="Dicas"
-          value={formData.tips}
-        />
+        <div>
+          <label>Porções</label>
+          <input 
+            onChange={e => setFormData({ ...formData, 'portions': parseInt(e.target.value)})}
+            placeholder="Porções"
+            value={formData.portions}
+          />
+        </div>
+    
+        <br />
+        
+        <div>
+          <label>Modo de preparo</label>
+          <input
+            type="text" 
+            onChange={e => setFormData({ ...formData, 'preparationMethod': e.target.value})}
+            placeholder="Modo de preparo"
+            value={formData.preparationMethod}
+          />
+        </div>
 
-        <input
-          onChange={e => setFormData({ ...formData, 'preparationTime': e.target.value})}
-          placeholder="Tempo de preparo"
-          value={formData.preparationTime}
-        />
+        <br />
 
-        <input
+        <div>
+          <label>Dicas</label>
+          <input
+            type="text" 
+            onChange={e => setFormData({ ...formData, 'tips': e.target.value})}
+            placeholder="Dicas"
+            value={formData.tips}
+          />
+        </div>
+        
+        <br />
+   
+        <div>
+          <label>Tempo de preparo</label>
+          <input
+            onChange={e => setFormData({ ...formData, 'preparationTime': e.target.value})}
+            placeholder="Tempo de preparo"
+            value={formData.preparationTime}
+          />
+        </div>
+        
+        <br />
+        
+        <div>
+          <label>Imagem</label>
+          <input
           type="file"
           onChange={processImage}
-        />
+          />
+        </div>
 
+        <br />
+        
         <button onClick={createRecipe}>Salvar receita</button>
       </form>
     </div>
