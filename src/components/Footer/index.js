@@ -6,9 +6,9 @@ export const Footer = () => {
   return(
     <footer className="footer-container">
         <h2>Equipe: </h2>
-        Itanu Romero <br />
-        Gabriel Gigante <br /> 
-        Gabriel Souza <br />
+        Itanu Romero |
+        Gabriel Gigante |
+        Gabriel Souza
     </footer>
   )
 }
