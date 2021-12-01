@@ -55,7 +55,7 @@ export const Recipes = () => {
             <p>{recipe.description}</p>
             <p>{recipe.ingredients}</p>
             
-            <button onClick={deleteRecipe(recipe.id)}>Remover receita</button>
+            <button onClick={() => deleteRecipe(recipe.id)}>Remover receita</button>
           </div>    
          ))}   
       </div>
